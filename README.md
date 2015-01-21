@@ -15,9 +15,11 @@ There are two options:
  - __amount__ Number, required. Whole number, in cents / pence / eurocents etc.
  - __currency__ String, defaults to 'USD'. ISO_4217 currency code. See http://en.wikipedia.org/wiki/ISO_4217
 
-    var jsonWebToken = quadernoServer.getJSONWebToken(amount, currency)
+Run it with:
 
-THis will return JSONWebToken:String, which you can use in createCharge() in 
+var jsonWebToken = quadernoServer.getJSONWebToken(amount, currency)
+
+This will return JSONWebToken:String, which you can use in createCharge() in 
 
 ## Tests
 
