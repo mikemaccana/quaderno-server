@@ -17,7 +17,7 @@ There are two options:
 
 Run it with:
 
-var jsonWebToken = quadernoServer.getJSONWebToken(amount, currency)
+    var jsonWebToken = quadernoServer.getJSONWebToken(amount, currency)
 
 This will return JSONWebToken:String, which you can use in createCharge() in 
 
