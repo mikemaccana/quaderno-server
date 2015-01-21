@@ -1,0 +1,11 @@
+{
+  "name": "quaderno-server",
+  "version": "0.0.5",
+  "dependencies": {
+    "jwt-simple": {
+      "version": "0.2.0",
+      "from": "jwt-simple@",
+      "resolved": "https://registry.npmjs.org/jwt-simple/-/jwt-simple-0.2.0.tgz"
+    }
+  }
+}

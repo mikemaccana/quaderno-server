@@ -4,8 +4,8 @@
   "version": "0.0.5",
   "author": "Mike MacCana <mike.maccana@gmail.com>",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/mikemaccana/quaderno-server.git"
+    "type": "git",
+    "url": "https://github.com/mikemaccana/quaderno-server.git"
   },
   "dependencies": {
     "jwt-simple": "^0.2.0"
@@ -14,6 +14,9 @@
     "test": "mocha"
   },
   "keywords": [
-      "quaderno"
-  ]
+    "quaderno"
+  ],
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
 }
