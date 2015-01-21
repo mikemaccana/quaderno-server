@@ -1,5 +1,7 @@
 # Quaderno Server
 
+[![Build Status](https://travis-ci.org/mikemaccana/quaderno-server.png)](https://travis-ci.org/mikemaccana/quaderno-server)
+
 ## Installation
 
 This is a small module designed for node.js servers to help calculate JSON web tokens (JWTs) for one-off charges in [Quaderno JS](http://quaderno.io).

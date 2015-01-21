@@ -10,6 +10,9 @@
   "dependencies": {
     "jwt-simple": "^0.2.0"
   },
+  "scripts": {
+    "test": "mocha"
+  },
   "keywords": [
       "quaderno"
   ]

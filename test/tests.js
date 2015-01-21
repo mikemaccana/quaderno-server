@@ -6,7 +6,7 @@ var assert = require('assert')
 
 var pretendStripeAccessToken = 'abcdef123'
 
-var quaderoServer = require('quaderno-server')(pretendStripeAccessToken);
+var quaderoServer = require('../index.js')(pretendStripeAccessToken);
 
 var log = console.log.bind(console)
 
