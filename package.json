@@ -1,7 +1,7 @@
 {
   "name": "quaderno-server",
   "description": "Helps calculate JSON web tokens (JWTs) for one-off charges in Quaderno.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Mike MacCana <mike.maccana@gmail.com>",
   "repository": {
     "type": "git",
