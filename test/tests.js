@@ -6,7 +6,7 @@ var assert = require('assert')
 
 var pretendStripeAccessToken = 'abcdef123'
 
-var quaderoServer = require('../index.js')(pretendStripeAccessToken)
+var quadernoServer = require('../index.js')(pretendStripeAccessToken)
 
 var log = console.log.bind(console)
 
@@ -26,11 +26,11 @@ suite('quaderoServer', function(){
 
 	suite('token encoding', function(){
 		test('encodes the payload accurately', function(){
-			var token = quaderoServer.getJSONWebToken(testPrice, testCurrency, new Date(1421767587931) )
+			var token = quadernoServer.getJSONWebToken(testPrice, testCurrency, new Date(1421767587931) )
 			assert.equal(token, testResult);
 		});
 		test('decodes the payload accurately', function(){
-			var payload = quaderoServer.decodeJSONWebToken(testResult)
+			var payload = quadernoServer.decodeJSONWebToken(testResult)
 			assert.deepEqual(payload, {
 				"amount": testPrice,
 				"currency": testCurrency,
@@ -40,11 +40,11 @@ suite('quaderoServer', function(){
 	});
 	suite('token encoding for paypal subscriptions', function(){
 		test('encodes the payload accurately', function(){
-			var token = quaderoServer.getJSONPayPalSubWebToken(testPrice, testCurrency, testSubscriptionUnit, testSubscriptionDuration, new Date(1421767587931) )
+			var token = quadernoServer.getJSONPayPalSubWebToken(testPrice, testCurrency, testSubscriptionUnit, testSubscriptionDuration, new Date(1421767587931) )
 			assert.equal(token, testPayPalResult);
         });
 		test('decodes the payload accurately', function(){
-			var payload = quaderoServer.decodeJSONPayPalSubWebToken(testPayPalResult)
+			var payload = quadernoServer.decodeJSONPayPalSubWebToken(testPayPalResult)
 			assert.deepEqual(payload, {
 				"amount": testPrice,
 				"currency": testCurrency,
