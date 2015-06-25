@@ -39,7 +39,7 @@ module.exports = function(stripeSecretKeyForQuaderno){
 	// See https://quaderno.io/docs/checkout/#PayPal_Subscriptions
 	// amount:Number required. Whole number, in cents / pence / eurocents etc.
 	// unit:String required.  Specify the units of the subscription frequency (D, W, M, Y). The default is M
-	// duration:Number required. Specify the subscription frequency. The default is 1.
+	// duration:Number required. Specify the subscription frequency. The default is 1
 	// currency:String required. ISO_4217 currency code. See http://en.wikipedia.org/wiki/ISO_4217
 	// date:Date optional (default current time). Generally only overridden for testing.
 	// Returns JSONWebToken:String
