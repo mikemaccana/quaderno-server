@@ -28,7 +28,7 @@ suite('quaderoServer', function(){
 
 	suite('token encoding', function(){
 		test('encodes the payload accurately', function(){
-			var token = quaderoServer.getJSONWebToken(testPrice, testCurrency, testProductDesc, new Date(1421767587931) )
+			var token = quadernoServer.getJSONWebToken(testPrice, testCurrency, testProductDesc, new Date(1421767587931) )
 			assert.equal(token, testResult);
 		});
 		test('decodes the payload accurately', function(){
@@ -43,7 +43,7 @@ suite('quaderoServer', function(){
 	});
 	suite('token encoding for paypal subscriptions', function(){
 		test('encodes the payload accurately', function(){
-			var token = quaderoServer.getJSONPayPalSubWebToken(testPrice, testCurrency, testSubscriptionUnit, testSubscriptionDuration, testProductDesc, new Date(1421767587931) )
+			var token = quadernoServer.getJSONPayPalSubWebToken(testPrice, testCurrency, testSubscriptionUnit, testSubscriptionDuration, testProductDesc, new Date(1421767587931) )
 			assert.equal(token, testPayPalResult);
         });
 		test('decodes the payload accurately', function(){
