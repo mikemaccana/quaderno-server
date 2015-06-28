@@ -10,9 +10,10 @@ module.exports = function(stripeSecretKeyForQuaderno){
 	// See https://github.com/quaderno/quaderno.js#creating-single-charges
 	// amount:Number required. Whole number, in cents / pence / eurocents etc.
 	// currency:String required. ISO_4217 currency code. See http://en.wikipedia.org/wiki/ISO_4217
+    // description:String optional. The statement you want to show on your receipt. https://quaderno.io/docs/guides/charge-form/
 	// date:Date optional (default current time). Generally only overridden for testing.
 	// Returns JSONWebToken:String
-	var getJSONWebToken = function(amount, currency, date){
+	var getJSONWebToken = function(amount, currency, description, date){
 		// defines the seconds since the UNIX epoch
 		if ( ! date ) {
 			date = new Date()
@@ -20,10 +21,14 @@ module.exports = function(stripeSecretKeyForQuaderno){
 		if ( ! currency ) {
 			currency = 'USD'
 		}
+        if ( ! description ) {
+            description = ''
+		}
 		var issuedAt = Math.floor( date.valueOf() / 1000 );
 		var payload = {
 		  "amount": amount,
 		  "currency": currency,
+          "description": description,
 		  "iat": issuedAt
 		}
 		return jwt.encode(payload, stripeSecretKeyForQuaderno);
@@ -35,8 +40,54 @@ module.exports = function(stripeSecretKeyForQuaderno){
 		return jwt.decode(token, stripeSecretKeyForQuaderno);
 	}
 
+	// Make a JSON Web Token for PayPal Subscriptions
+	// See https://quaderno.io/docs/checkout/#PayPal_Subscriptions
+	// amount:Number required. Whole number, in cents / pence / eurocents etc.
+	// unit:String required.  Specify the units of the subscription frequency (D, W, M, Y). The default is M
+	// duration:Number required. Specify the subscription frequency. The default is 1
+	// currency:String required. ISO_4217 currency code. See http://en.wikipedia.org/wiki/ISO_4217
+    // description:String optional. The statement you want to show on your receipt. https://quaderno.io/docs/guides/charge-form/
+	// date:Date optional (default current time). Generally only overridden for testing.
+	// Returns JSONWebToken:String
+	var getJSONPayPalSubWebToken = function(amount, currency, unit, duration, description, date){
+		// defines the seconds since the UNIX epoch
+		if ( ! date ) {
+			date = new Date()
+		}
+		if ( ! currency ) {
+			currency = 'USD'
+		}
+		if ( ! unit ) {
+			unit = 'M'
+		}
+		if ( ! duration ) {
+			duration = 1
+		}
+        if ( ! description ) {
+            description = ''
+        }
+		var issuedAt = Math.floor( date.valueOf() / 1000 );
+		var payload = {
+			"amount": amount,
+			"currency": currency,
+			"subscription_unit": unit,
+			"subscription_duration": duration,
+            "description": description,
+			"iat": issuedAt
+		}
+		return jwt.encode(payload, stripeSecretKeyForQuaderno);
+	}
+
+	// Decode a JSON Web Token
+	// token:String required
+	var decodeJSONPayPalSubWebToken = function(token){
+		return jwt.decode(token, stripeSecretKeyForQuaderno);
+	}
+
 	return {
 		getJSONWebToken: getJSONWebToken,
-		decodeJSONWebToken: decodeJSONWebToken
+		decodeJSONWebToken: decodeJSONWebToken,
+		getJSONPayPalSubWebToken: getJSONPayPalSubWebToken,
+		decodeJSONPayPalSubWebToken: decodeJSONPayPalSubWebToken
 	}
 }

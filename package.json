@@ -1,12 +1,20 @@
 {
   "name": "quaderno-server",
-  "description": "Helps calculate JSON web tokens (JWTs) for one-off charges in Quaderno.",
+  "description": "Helps calculate JSON web tokens (JWTs) for one-off charges & Paypal subscriptions in Quaderno.",
   "version": "0.0.6",
   "author": "Mike MacCana <mike.maccana@gmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/mikemaccana/quaderno-server.git"
   },
+  "contributors": [
+    {
+      "name": "Mike MacCana"
+    },
+    {
+      "name": "Sharry Stowell"
+    }
+  ],
   "dependencies": {
     "jwt-simple": "^0.2.0"
   },
